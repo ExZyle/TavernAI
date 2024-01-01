@@ -8,17 +8,10 @@ WORKDIR ${APP_HOME}
 
 # Install app dependencies
 COPY package*.json ./
-RUN \
-  echo "*** Install npm packages ***" && \
-  npm install
+RUN npm install
 
 # Bundle app source
 COPY . ./
-
-# Cleanup unnecessary files
-RUN \
-  echo "*** Cleanup ***" && \
-  rm -rf "./.git"
 
 EXPOSE 8000
 
